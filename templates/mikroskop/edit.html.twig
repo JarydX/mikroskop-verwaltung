@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Mikroskop{% endblock %}
+
+{% block body %}
+    <h1>Edit Mikroskop</h1>
+
+    {{ include('mikroskop/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_mikroskop_index') }}">back to list</a>
+
+    {{ include('mikroskop/_delete_form.html.twig') }}
+{% endblock %}

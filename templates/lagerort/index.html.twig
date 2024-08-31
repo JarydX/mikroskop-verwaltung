@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lagerort index{% endblock %}
+
+{% block body %}
+    <h1>Lagerort index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kurzbeschreibung</th>
+                <th>Etage</th>
+                <th>Raum</th>
+                <th>Schranknummer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lagerort in lagerorts %}
+            <tr>
+                <td>{{ lagerort.id }}</td>
+                <td>{{ lagerort.Kurzbeschreibung }}</td>
+                <td>{{ lagerort.Etage }}</td>
+                <td>{{ lagerort.Raum }}</td>
+                <td>{{ lagerort.Schranknummer }}</td>
+                <td>
+                    <a href="{{ path('app_lagerort_show', {'id': lagerort.id}) }}">show</a>
+                    <a href="{{ path('app_lagerort_edit', {'id': lagerort.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lagerort_new') }}">Create new</a>
+{% endblock %}

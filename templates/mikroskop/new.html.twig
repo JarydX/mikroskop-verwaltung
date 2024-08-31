@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Mikroskop{% endblock %}
+
+{% block body %}
+    <h1>Create new Mikroskop</h1>
+
+    {{ include('mikroskop/_form.html.twig') }}
+
+    <a href="{{ path('app_mikroskop_index') }}">back to list</a>
+{% endblock %}

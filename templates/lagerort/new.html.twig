@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lagerort{% endblock %}
+
+{% block body %}
+    <h1>Create new Lagerort</h1>
+
+    {{ include('lagerort/_form.html.twig') }}
+
+    <a href="{{ path('app_lagerort_index') }}">back to list</a>
+{% endblock %}

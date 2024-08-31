@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mikroskop index{% endblock %}
+
+{% block body %}
+    <h1>Mikroskop index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Inventarnummer</th>
+                <th>Hersteller</th>
+                <th>Modell</th>
+                <th>Ausgeliehen</th>
+                <th>LetztePruefung</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mikroskop in mikroskops %}
+            <tr>
+                <td>{{ mikroskop.id }}</td>
+                <td>{{ mikroskop.inventarnummer }}</td>
+                <td>{{ mikroskop.hersteller }}</td>
+                <td>{{ mikroskop.modell }}</td>
+                <td>{{ mikroskop.ausgeliehen ? 'Yes' : 'No' }}</td>
+                <td>{{ mikroskop.letztePruefung ? mikroskop.letztePruefung|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_mikroskop_show', {'id': mikroskop.id}) }}">show</a>
+                    <a href="{{ path('app_mikroskop_edit', {'id': mikroskop.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_mikroskop_new') }}">Create new</a>
+{% endblock %}

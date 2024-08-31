@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mikroskop{% endblock %}
+
+{% block body %}
+    <h1>Mikroskop</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mikroskop.id }}</td>
+            </tr>
+            <tr>
+                <th>Inventarnummer</th>
+                <td>{{ mikroskop.inventarnummer }}</td>
+            </tr>
+            <tr>
+                <th>Hersteller</th>
+                <td>{{ mikroskop.hersteller }}</td>
+            </tr>
+            <tr>
+                <th>Modell</th>
+                <td>{{ mikroskop.modell }}</td>
+            </tr>
+            <tr>
+                <th>Lagerort</th>
+                <td>{{ mikroskop.lagerort }}</td>
+            </tr>
+            <tr>
+                <th>Ausgeliehen</th>
+                <td>{{ mikroskop.ausgeliehen ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>LetztePruefung</th>
+                <td>{{ mikroskop.letztePruefung ? mikroskop.letztePruefung|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_mikroskop_index') }}">back to list</a>
+
+    <a href="{{ path('app_mikroskop_edit', {'id': mikroskop.id}) }}">edit</a>
+
+    {{ include('mikroskop/_delete_form.html.twig') }}
+{% endblock %}
